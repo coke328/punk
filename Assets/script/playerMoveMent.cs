@@ -36,6 +36,13 @@ public class playerMoveMent : MonoBehaviour
     private BoxCollider2D crouchCol;
     private BoxCollider2D standardCol;
     private BoxCollider2D crouchHeadCol;
+    public bool able_dash;
+    private bool Dashing = false;
+    public Vector2 dashPower;
+    public float dashTime = 0.3f;
+    public float dashCoolTime = 3f;
+    private float dashT = 0f;
+    private Vector2 velBefDash;
     
     // Start is called before the first frame update
 
@@ -63,26 +70,14 @@ public class playerMoveMent : MonoBehaviour
         bool crouchHeadTouch = crouchHeadCol.IsTouchingLayers(LayerMask.GetMask("ground"));
 
         hori = Input.GetAxisRaw("Horizontal");
-        /*
-        velX += hori * acc * Time.deltaTime;
 
-        if(velX > 1){ velX = 1; }
-        else if(velX < -1) { velX = -1; }
-
-        if(isGround && velX != 0) {
-            velX -= velX / Mathf.Abs(velX) * drag * Time.deltaTime;
-            //velX *= drag * Time.deltaTime;
-        }
-        */
         if(hori > 0){
             spRend.flipX = false;
         }else if(hori < 0){
             spRend.flipX = true;
         }
 
-        //if(velX > -0.01f && velX < 0.01f && runing){velX = 0;}
-
-
+/* climb
         if(rightTouch && Input.GetKey(KeyCode.D) && climbTime > 0 && !Crouch){
             if(rb.velocity.y < climbSpeed * 1){rb.AddForce(new Vector2(0,1) * climbSpeed);}
             //rb.velocity = new Vector2(rb.velocity.x,climbSpeed);
@@ -111,9 +106,17 @@ public class playerMoveMent : MonoBehaviour
             if(climbTime > climbTimeMax){
                 climbTime = climbTimeMax;
             }
+        }*/
+        
+        if(Input.GetKeyDown("space") && !Crouch && !isGround){
+            if(rightTouch){
+                rb.AddForce(new Vector2(-wallJumpPower.x,wallJumpPower.y));
+            }else if(leftTouch){
+                rb.AddForce(wallJumpPower);
+            }
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift)){
+        if(Input.GetKeyDown(KeyCode.LeftControl)){
             if(!Crouch){
                 Crouch = true;
                 standardCol.enabled = false;
@@ -151,18 +154,19 @@ public class playerMoveMent : MonoBehaviour
         }
 
         float x = rb.velocity.x;
-        if(Mspeed > x && hori > 0){
-            x += hori * a * Time.deltaTime;
-        }else if(-Mspeed < x && hori < 0){
-            x += hori * a * Time.deltaTime;
-        }
-        if(isGround && x != 0) {
-            x -= x / Mathf.Abs(x) * d * Time.deltaTime;
+        if(!Dashing){
+            if(Mspeed > x && hori > 0){
+                x += hori * a * 0.01f;
+            }else if(-Mspeed < x && hori < 0){
+                x += hori * a * 0.01f;
+            }
+            if(isGround && x != 0) {
+                x -= x / Mathf.Abs(x) * d * 0.01f;
+            }
         }
         rb.velocity = new Vector2(x,rb.velocity.y);
-        
 
-        if(isGround && Input.GetKeyDown("space")){
+        if(isGround && Input.GetKeyDown("space") && !Dashing){
             rb.AddForce(new Vector2(0,1)*jumpForce);
             anim.Play("jump");
             
@@ -183,12 +187,29 @@ public class playerMoveMent : MonoBehaviour
             run = false;
         }
 
+        if(able_dash && dashT > dashCoolTime && Input.GetKeyDown(KeyCode.LeftShift)){
+            if(Input.GetKey(KeyCode.A)){
+                Dashing = true;
+                velBefDash = rb.velocity;
+                rb.gravityScale = 0f;
+                rb.velocity = new Vector2(-dashPower.x,dashPower.y);
+                Invoke("dashEnd",dashTime);
+            }else if(Input.GetKey(KeyCode.D)){
+                Dashing = true;
+                velBefDash = rb.velocity;
+                rb.gravityScale = 0f;
+                rb.velocity = dashPower;
+                Invoke("dashEnd",dashTime);
+            }
+        }
+
         anim.SetBool("runing",run);
         anim.SetBool("onground", isGround);
         anim.SetBool("crouch",Crouch);
 
         lastground = isGround;
-
+        dashT += Time.deltaTime;
+        Debug.Log(rb.gravityScale);
     }
 
     void jumpFalse(){
@@ -198,5 +219,10 @@ public class playerMoveMent : MonoBehaviour
     void landFalse(){
         anim.Play("idle");
         land = false;
+    }
+    void dashEnd(){
+        rb.velocity = velBefDash;
+        rb.gravityScale = 3f;
+        Dashing = false;
     }
 }
