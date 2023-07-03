@@ -8,6 +8,7 @@ public class hp : MonoBehaviour
     public int Hp = 10;
     public UnityEvent getDamage;
     public UnityEvent daed;
+    public UnityEvent getHeal;
 
     // Start is called before the first frame update
     void Start()
@@ -28,4 +29,12 @@ public class hp : MonoBehaviour
             daed.Invoke();
         }
     }
+    public void heal(int d)
+    {
+        Debug.Log("현 체력: " + Hp);
+        Hp += d;
+        getHeal.Invoke();
+        Debug.Log("증가 체력: " + Hp);
+    }
+    public int return_hp() { return Hp; }
 }

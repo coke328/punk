@@ -107,7 +107,7 @@ public class playerMoveMent : MonoBehaviour
                 climbTime = climbTimeMax;
             }
         }*/
-        
+
         if(Input.GetKeyDown("space") && !Crouch && !isGround){
             if(rightTouch){
                 rb.AddForce(new Vector2(-wallJumpPower.x,wallJumpPower.y));
@@ -209,7 +209,7 @@ public class playerMoveMent : MonoBehaviour
 
         lastground = isGround;
         dashT += Time.deltaTime;
-        Debug.Log(rb.gravityScale);
+        //Debug.Log(rb.gravityScale);
     }
 
     void jumpFalse(){
