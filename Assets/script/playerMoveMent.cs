@@ -208,7 +208,7 @@ public class playerMoveMent : MonoBehaviour
 
         lastground = isGround;
         dashT += Time.deltaTime;
-        Debug.Log(rb.gravityScale);
+        //Debug.Log(rb.gravityScale);
     }
 
     void jumpFalse(){//점프 애니메이션 끝 낼때 실행되는 함수
