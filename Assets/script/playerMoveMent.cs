@@ -39,6 +39,7 @@ public class playerMoveMent : MonoBehaviour
     public float dashCoolTime = 3f;//대쉬 쿨타임
     private float dashT = 0f;//대쉬하고나서 지난시간
     private Vector2 velBefDash;//대쉬이전의 속도 저장하는 곳
+    private bool isGround;
 
     void Start()
     {   //컴포넌트 불러오기
@@ -55,79 +56,99 @@ public class playerMoveMent : MonoBehaviour
 
     void Update()
     {   
-        bool isGround = bottomcol.IsTouchingLayers(LayerMask.GetMask("ground"));//지면과 접촉여부를 판단하는 변수
-
-        hori = Input.GetAxisRaw("Horizontal");//좌우 입력
+        //시작 셋업
+        updateSetup();
 
         //캐릭터 좌우 돌아보기
+        look();
+        
+        //벽 점프
+        if(Input.GetKeyDown("space") && !Crouch && !isGround){
+            wallJump();
+        }
+
+        //웅크리기 기능
+        if(Input.GetKeyDown(KeyCode.LeftControl)){
+            crouch();
+        }
+        
+        //기본상태 변화
+        state();
+
+        //움직임
+        movement();
+        
+        //점프 기능
+        if(isGround && Input.GetKeyDown("space") && !Dashing){
+            Jump();
+        }
+        
+        //애니메이션
+        Animation();
+
+        //대쉬 기능
+        if(able_dash && dashT > dashCoolTime && Input.GetKeyDown(KeyCode.LeftShift)){
+            if(Input.GetKey(KeyCode.A)){
+                dash(false);
+            }else if(Input.GetKey(KeyCode.D)){
+                dash(true);
+            }
+        }
+
+        //마지막 업데이트
+        updateLast();
+    }
+
+    private void updateSetup(){
+        isGround = bottomcol.IsTouchingLayers(LayerMask.GetMask("ground"));//지면과 접촉여부를 판단하는 변수
+
+        hori = Input.GetAxisRaw("Horizontal");//좌우 입력
+    }
+    private void updateLast(){
+        lastground = isGround;
+        dashT += Time.deltaTime;
+    }
+    private void look(){
         if(hori > 0){
             spRend.flipX = false;
         }else if(hori < 0){
             spRend.flipX = true;
         }
-
-/* 기어오르는 기능
-        if(rightTouch && Input.GetKey(KeyCode.D) && climbTime > 0 && !Crouch){
-            if(rb.velocity.y < climbSpeed * 1){rb.AddForce(new Vector2(0,1) * climbSpeed);}
-            //rb.velocity = new Vector2(rb.velocity.x,climbSpeed);
-
-            climbTime -= Time.deltaTime;
-
-            if(Input.GetKeyDown("space") && !isGround){
-                rb.AddForce(new Vector2(-wallJumpPower.x,wallJumpPower.y));
-            }
-        }else if(leftTouch && Input.GetKey(KeyCode.A) && climbTime > 0 && !Crouch){
-            if(rb.velocity.y < climbSpeed * 1){rb.AddForce(new Vector2(0,1) * climbSpeed);}
-            //rb.velocity = new Vector2(rb.velocity.x,climbSpeed);
-
-            climbTime -= Time.deltaTime;
-
-            if(Input.GetKeyDown("space") && !isGround){
-                rb.AddForce(wallJumpPower);
-            }
-        }else if(!rightTouch && !leftTouch) {
-            climbTime += Time.deltaTime * climbStateCharge;
-            if(climbTime > climbTimeMax){
-                climbTime = climbTimeMax;
-            }
-        }else if(isGround){
-            climbTime += Time.deltaTime * climbStateCharge;
-            if(climbTime > climbTimeMax){
-                climbTime = climbTimeMax;
-            }
-        }*/
-        
-        //벽 점프
-        if(Input.GetKeyDown("space") && !Crouch && !isGround){
-            if(rightcol.IsTouchingLayers(LayerMask.GetMask("ground"))){
-                rb.AddForce(new Vector2(-wallJumpPower.x,wallJumpPower.y));
-            }else if(leftcol.IsTouchingLayers(LayerMask.GetMask("ground"))){
-                rb.AddForce(wallJumpPower);
-            }
+    }
+    public void Jump(){
+        rb.AddForce(new Vector2(0,1)*jumpForce);
+        anim.Play("jump");//점프 애니메이션 재생
+            
+        Invoke("jumpFalse",0.08f);//일정시간뒤 점프애니메이션 정지
+    }
+    public void wallJump(){
+        if(rightcol.IsTouchingLayers(LayerMask.GetMask("ground"))){
+            rb.AddForce(new Vector2(-wallJumpPower.x,wallJumpPower.y));
+        }else if(leftcol.IsTouchingLayers(LayerMask.GetMask("ground"))){
+            rb.AddForce(wallJumpPower);
         }
-
-        //웅크리기 기능
-        if(Input.GetKeyDown(KeyCode.LeftControl)){
-            if(!Crouch){
-                Crouch = true;
-                standardCol.enabled = false;
-                crouchCol.enabled = true;
-            }else if(!crouchHeadCol.IsTouchingLayers(LayerMask.GetMask("ground")) && Crouch) {//웅크리기를 풀떄 머리위가 닿아있으면 못 일어남
-                Crouch = false;
-                standardCol.enabled = true;
-                crouchCol.enabled = false;
-            }
+    }
+    public void crouch(){
+        if(!Crouch){
+            Crouch = true;
+            standardCol.enabled = false;
+            crouchCol.enabled = true;
+        }else if(!crouchHeadCol.IsTouchingLayers(LayerMask.GetMask("ground")) && Crouch) {//웅크리기를 풀떄 머리위가 닿아있으면 못 일어남
+            Crouch = false;
+            standardCol.enabled = true;
+            crouchCol.enabled = false;
         }
-        
-        //기본상태 변화
+    }
+    
+    private void state(){
         if(!isGround){runing = false;}
         else if(Crouch){
             runing = false;
         }else{
             runing = true;
         }
-
-        
+    }
+    private void movement(){
         float a = 0;//가속력
         float Mspeed = 0;//최대속력
         float d = 0;//마찰
@@ -161,15 +182,23 @@ public class playerMoveMent : MonoBehaviour
             }
         }
         rb.velocity = new Vector2(x,rb.velocity.y);//마찰 적용된 속도로 현재속도 바꿈
-        
-        //점프 기능
-        if(isGround && Input.GetKeyDown("space") && !Dashing){
-            rb.AddForce(new Vector2(0,1)*jumpForce);
-            anim.Play("jump");//점프 애니메이션 재생
-            
-            Invoke("jumpFalse",0.08f);//일정시간뒤 점프애니메이션 정지
+    }
+    public void dash(bool dir){
+        if(!dir){
+            Dashing = true;
+            velBefDash = rb.velocity;//대쉬를 누른 순간 속도 저장
+            rb.gravityScale = 0f;//중력 없애기
+            rb.velocity = new Vector2(-dashPower.x,dashPower.y);//속도 대쉬힘으로 변환
+            Invoke("dashEnd",dashTime);//일정 시간후 대쉬끝 함수 실행
+        }else{
+            Dashing = true;
+            velBefDash = rb.velocity;
+            rb.gravityScale = 0f;
+            rb.velocity = dashPower;
+            Invoke("dashEnd",dashTime);
         }
-        
+    }
+    private void Animation(){
         //착지 애니메이션 재생
         if(isGround != lastground){
             anim.Play("land");
@@ -184,31 +213,10 @@ public class playerMoveMent : MonoBehaviour
         }else{
             run = false;
         }
-
-        //대쉬 기능
-        if(able_dash && dashT > dashCoolTime && Input.GetKeyDown(KeyCode.LeftShift)){
-            if(Input.GetKey(KeyCode.A)){
-                Dashing = true;
-                velBefDash = rb.velocity;//대쉬를 누른 순간 속도 저장
-                rb.gravityScale = 0f;//중력 없애기
-                rb.velocity = new Vector2(-dashPower.x,dashPower.y);//속도 대쉬힘으로 변환
-                Invoke("dashEnd",dashTime);//일정 시간후 대쉬끝 함수 실행
-            }else if(Input.GetKey(KeyCode.D)){
-                Dashing = true;
-                velBefDash = rb.velocity;//대쉬를 누른 순간 속도 저장
-                rb.gravityScale = 0f;
-                rb.velocity = dashPower;
-                Invoke("dashEnd",dashTime);
-            }
-        }
-
         //애니메이션용 변수 적용
         anim.SetBool("runing",run);
         anim.SetBool("onground", isGround);
         anim.SetBool("crouch",Crouch);
-
-        lastground = isGround;
-        dashT += Time.deltaTime;
     }
 
     void jumpFalse(){//점프 애니메이션 끝 낼때 실행되는 함수
@@ -221,5 +229,37 @@ public class playerMoveMent : MonoBehaviour
         rb.velocity = velBefDash;//대쉬 누른 순간의 속도 불러오기
         rb.gravityScale = 3f;//중력
         Dashing = false;//대쉬 끝
+    }
+    private void climb(){
+/* 기어오르는 기능
+        if(rightTouch && Input.GetKey(KeyCode.D) && climbTime > 0 && !Crouch){
+            if(rb.velocity.y < climbSpeed * 1){rb.AddForce(new Vector2(0,1) * climbSpeed);}
+            //rb.velocity = new Vector2(rb.velocity.x,climbSpeed);
+
+            climbTime -= Time.deltaTime;
+
+            if(Input.GetKeyDown("space") && !isGround){
+                rb.AddForce(new Vector2(-wallJumpPower.x,wallJumpPower.y));
+            }
+        }else if(leftTouch && Input.GetKey(KeyCode.A) && climbTime > 0 && !Crouch){
+            if(rb.velocity.y < climbSpeed * 1){rb.AddForce(new Vector2(0,1) * climbSpeed);}
+            //rb.velocity = new Vector2(rb.velocity.x,climbSpeed);
+
+            climbTime -= Time.deltaTime;
+
+            if(Input.GetKeyDown("space") && !isGround){
+                rb.AddForce(wallJumpPower);
+            }
+        }else if(!rightTouch && !leftTouch) {
+            climbTime += Time.deltaTime * climbStateCharge;
+            if(climbTime > climbTimeMax){
+                climbTime = climbTimeMax;
+            }
+        }else if(isGround){
+            climbTime += Time.deltaTime * climbStateCharge;
+            if(climbTime > climbTimeMax){
+                climbTime = climbTimeMax;
+            }
+        }*/
     }
 }
