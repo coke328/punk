@@ -18,7 +18,7 @@ public class footBoard : MonoBehaviour
 
     void Update()
     {
-        if(col.IsTouchingLayers(LayerMask.GetMask("moveObject"))){
+        if(col.IsTouchingLayers(LayerMask.GetMask("player","moveObject"))){
             press.Invoke();
             if(!lastcol){
                 pressDown.Invoke();
