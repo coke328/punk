@@ -28,4 +28,5 @@ public class hp : MonoBehaviour
         getHeal.Invoke();
     }
     public int return_hp() { return Hp; }
+    public bool is_max() { return MaxHp == Hp; }
 }
