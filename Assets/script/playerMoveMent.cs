@@ -144,6 +144,7 @@ public class playerMoveMent : MonoBehaviour
             }else if(rb.velocity.x < 0){
                 spRend.flipX = true;
             }
+
         }
     }
     public void Jump(){
@@ -164,6 +165,7 @@ public class playerMoveMent : MonoBehaviour
             spontaneityAnim = true;
             lookAble = false;
             if(dir){
+
                 rb.AddForce(new Vector2(-wallJumpPower.x,wallJumpPower.y));
                 
             }else{
@@ -318,6 +320,7 @@ public class playerMoveMent : MonoBehaviour
                 changeAnim((int)animIndex.air);
             }
         } 
+
 
     }
 
