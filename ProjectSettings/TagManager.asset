@@ -12,10 +12,12 @@ TagManager:
   - ground
   - Water
   - UI
-  - Player
-  - Item
-  - orb
-  - sign
+
+  - moveObject
+  - player
+  - 
+  - 
+
   - 
   - 
   - 
