@@ -9,21 +9,21 @@ public class Hp_orb : MonoBehaviour
     SpriteRenderer spriterenderer;
     Transform transformobj;
     [SerializeField]
-    private hp Hp;//ÇÃ·¹ÀÌ¾î¿¡°Ô¼­ °¡Á®¿À±â
+    private hp Hp;//ï¿½Ã·ï¿½ï¿½Ì¾î¿¡ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private hp_UI Hp_UI;//ÇÃ·¹ÀÌ¾î¿¡°Ô¼­ °¡Á®¿À±â
-    //ÁÂÇ¥,¹æÇâ,Å©±â
+    //private hp_UI Hp_UI;//ï¿½Ã·ï¿½ï¿½Ì¾î¿¡ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½Ç¥,ï¿½ï¿½ï¿½ï¿½,Å©ï¿½ï¿½
     Vector2 vec;
     Vector2 direction;
     Vector3 scale;
     RaycastHit2D rayHit;
-    public int healnum;//È¸º¹·®
-    public float scalenum;//¾ÆÀÌÅÛ Å©±â
+    public int healnum;//È¸ï¿½ï¿½ï¿½ï¿½
+    public float scalenum;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½
     private void Start()
     {
         spriterenderer = GetComponent<SpriteRenderer>();
         transformobj = GetComponent<Transform>();
-        //ÁÂÇ¥¹× ±æÀÌ ¼³Á¤
+        //ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         vec = new Vector2(transform.position.x, spriterenderer.bounds.min.y);
         direction = Vector2.up;
         scale = transformobj.localScale;
@@ -31,14 +31,14 @@ public class Hp_orb : MonoBehaviour
     private void Update()
     {
         scale = new Vector3(scalenum, scalenum, 1); 
-        //½ºÇÁ¶óÀÌÆ® Á¤Áß¾Ó¿¡ ·¹ÀÌ½î±â
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ß¾Ó¿ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ï¿½
         rayHit = Physics2D.Raycast(vec, direction, scale.x, LayerMask.GetMask("Player"));
         Debug.DrawRay(vec, direction * scalenum, new Color(0, 1, 0, 1));
-        //ÇÃ·¹ÀÌ¾î°¡ ´ê¾Ò°í Ç®ÇÇ°¡ ¾Æ´Ï¶ó¸é
+        //ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½Ò°ï¿½ Ç®ï¿½Ç°ï¿½ ï¿½Æ´Ï¶ï¿½ï¿½
         if (rayHit.collider != null && !Hp.is_max())
         {
             Hp.heal(healnum);
-            Hp_UI.changeText(Hp.return_hp());
+            //Hp_UI.changeText(Hp.return_hp());
             Destroy(this.gameObject);
         }
     }
