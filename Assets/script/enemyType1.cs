@@ -6,22 +6,22 @@ public class enemyType1 : MonoBehaviour
 {
     public GameObject chaseSector;
     public Transform playerPos;
+    public playerMoveMent pMoveScript;
     private float wanderingStart;
     private float wanderingEnd;
     public float wanderingMaxspeed = 3;
-    public float wanderingAcc = 0.5f;
+    public float wanderingAcc = 0.1f;
     public float chaseMaxspeed = 5;
-    public float chaseAcc = 0.5f;
+    public float chaseAcc = 0.1f;
     private Rigidbody2D rb;
     private SpriteRenderer spRend;
     private Animator anim;
     private bool direction = true;
     private bool lastTmp = false;
     public float distanceMatch = 1.5f;//애니메이션 아이들 상태 들어가려면기위한 최소 속도
-    public float damageCoolTime = 1;
-    public float damageT;
     public hp hpScript;
     public int damage = 1;
+    public float damageBouncePower = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -109,20 +109,13 @@ public class enemyType1 : MonoBehaviour
         }
     }
     void OnCollisionEnter2D(Collision2D o){
+
         if(o.transform.CompareTag("Player")){
             hpScript.damage(damage);
-            damageT = damageCoolTime;
-        }
-    }
 
-    void OnCollisionStay2D(Collision2D o){
-        if(o.transform.CompareTag("Player")){
-            if(damageT < 0){
-                hpScript.damage(damage);
-                damageT = damageCoolTime;
-            }
+            Vector2 bounceDir = playerPos.position - transform.position;
 
-            damageT -= Time.deltaTime;
+            pMoveScript.force(bounceDir * damageBouncePower);
         }
     }
 }
