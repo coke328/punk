@@ -78,7 +78,6 @@ public class Laser : MonoBehaviour
         Vector2 beamvec_end = new Vector2(transform.position.x, transform.position.y + 0.5f + distanceToHit);
         //라인렌더러 코드
         visualizer_line.Play(beamvec, beamvec_end);
-        Debug.Log(beamvec + "\n" + beamvec_end);
     }
     void HitCheckOn()
     {

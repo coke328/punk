@@ -32,8 +32,6 @@ public class Moving_Platform : MonoBehaviour
     }
     void check_pos()
     {
-        Debug.Log(transform.position);
-        Debug.Log(chasingpos.position);
         if (transform.position == desPos1.position)
             chasingpos = desPos2;
         if (transform.position == desPos2.position)
