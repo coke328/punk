@@ -60,7 +60,7 @@ public class Laser : MonoBehaviour
     void Update()
     {
         //rayHit = Physics2D.Raycast(vec, direction, Max_Ray_Length, LayerMask.GetMask(""));
-        rayHit = Physics2D.Raycast(vec, direction, distanceToHit, LayerMask.GetMask("Player"));
+        rayHit = Physics2D.Raycast(vec, direction, distanceToHit, LayerMask.GetMask("player"));
         //DrawRay
         Debug.DrawRay(vec, direction * distanceToHit, new Color(0, 1, 0, 1));
         //Ray is Hit

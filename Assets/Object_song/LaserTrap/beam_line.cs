@@ -8,41 +8,41 @@ using UnityEngine.UIElements;
 
 public class beam_line : MonoBehaviour
 {
-    LineRenderer LineRenderer;
+    LineRenderer LR;
     EdgeCollider2D EdgeCollider;
     void Awake()
     {
-        LineRenderer = GetComponent<LineRenderer>();
+        LR = GetComponent<LineRenderer>();
         EdgeCollider = GetComponent<EdgeCollider2D>();
         //lineRenderer basic setting
-        LineRenderer.positionCount = 2;
-        LineRenderer.enabled = false;
-        LineRenderer.startWidth = 1f;
-        LineRenderer.endWidth = 1f;
+        LR.positionCount = 2;
+        LR.enabled = false;
+        LR.startWidth = 1f;
+        LR.endWidth = 1f;
         //boxCollider basic setting
         EdgeCollider.enabled = false;
     }
     public void Play(Vector2 from, Vector2 to)
     {
         //LineRenderer set Vector
-        LineRenderer.enabled = true;
-        LineRenderer.SetPosition(0, from);
-        LineRenderer.SetPosition(1, to);
+        LR.enabled = true;
+        LR.SetPosition(0, from);
+        LR.SetPosition(1, to);
         //EdgeCollider set Vector
         SetColliderFromLine();
     }
     public void Stop()
     {
-        LineRenderer.enabled = false;
+        LR.enabled = false;
         EdgeCollider.enabled = false;
     }
     private void SetColliderFromLine()
     {
         EdgeCollider.enabled = true;
-        Vector2[] points = new Vector2[LineRenderer.positionCount];
-        for (int i = 0; i < LineRenderer.positionCount; i++)
+        Vector2[] points = new Vector2[LR.positionCount];
+        for (int i = 0; i < LR.positionCount; i++)
         {
-            points[i] = LineRenderer.GetPosition(i);
+            points[i] = LR.GetPosition(i);
         }
         EdgeCollider.points = points;
     }
