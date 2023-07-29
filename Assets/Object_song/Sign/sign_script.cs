@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class sign_script : MonoBehaviour
 {
-    [SerializeField]
-    private talkballon_script talkballon;
-    [SerializeField]
-    private tutorialText tutorialText;
+    public UnityEvent sign_image_on;
+    public UnityEvent sign_text_on;
+    public UnityEvent sign_image_off;
+    public UnityEvent sign_text_off;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //트리거충돌된 오브젝트의 이름을 비교
         if (collision.gameObject.name == "player")
         {
             Debug.Log("충돌함");
-            talkballon.talkballon_Enable();
-            tutorialText.meshenable();
+            sign_image_on.Invoke();
+            sign_text_on.Invoke();
         }
     }
 
@@ -25,8 +26,8 @@ public class sign_script : MonoBehaviour
         if (collision.gameObject.name == "player")
         {
             Debug.Log("충돌벗어남");
-            talkballon.talkballon_Disable();
-            tutorialText.meshdisable();
+            sign_image_off.Invoke();
+            sign_text_off.Invoke();
         }
     }
 }

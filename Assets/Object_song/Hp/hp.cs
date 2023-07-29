@@ -26,6 +26,7 @@ public class hp : MonoBehaviour
         else//최대체력이라 회복불가
             Hp = MaxHp;
         getHeal.Invoke();
+        Debug.Log(Hp);
     }
     public int return_hp() { return Hp; }
     public bool is_max() { return MaxHp == Hp; }

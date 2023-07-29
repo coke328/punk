@@ -9,32 +9,28 @@ public class Hp_orb : MonoBehaviour
     SpriteRenderer spriterenderer;
     Transform transformobj;
     [SerializeField]
-    private hp Hp;//�÷��̾�Լ� ��������
-    [SerializeField]
-    //private hp_UI Hp_UI;//�÷��̾�Լ� ��������
-    //��ǥ,����,ũ��
+    private hp Hp;
+    //[SerializeField]
+    //private hp_UI Hp_UI;
     Vector2 vec;
     Vector2 direction;
     Vector3 scale;
     RaycastHit2D rayHit;
-    public int healnum;//ȸ����
-    public float scalenum;//������ ũ��
+    public int healnum;
+    public float scalenum;
     private void Start()
     {
         spriterenderer = GetComponent<SpriteRenderer>();
         transformobj = GetComponent<Transform>();
-        //��ǥ�� ���� ����
         vec = new Vector2(transform.position.x, spriterenderer.bounds.min.y);
         direction = Vector2.up;
         scale = transformobj.localScale;
     }
     private void Update()
     {
-        scale = new Vector3(scalenum, scalenum, 1); 
-        //��������Ʈ ���߾ӿ� ���̽��
-        rayHit = Physics2D.Raycast(vec, direction, scale.x, LayerMask.GetMask("Player"));
+        scale = new Vector3(scalenum, scalenum, 1);
+        rayHit = Physics2D.Raycast(vec, direction, scale.x, LayerMask.GetMask("player"));
         Debug.DrawRay(vec, direction * scalenum, new Color(0, 1, 0, 1));
-        //�÷��̾ ��Ұ� Ǯ�ǰ� �ƴ϶��
         if (rayHit.collider != null && !Hp.is_max())
         {
             Hp.heal(healnum);

@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: e02dd5a139668974da0a9119b402858a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 452
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: -1}
+        - {x: 24, y: -1}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c85c64d8cda09d6468b93acfd6d2e312
+      internalID: 232164323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 452
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: -1}
+        - {x: 24, y: -1}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad05e6167fee8aa49908ad52e0f94b4e
+      internalID: 1065815894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 452
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: 1}
+        - {x: -24, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: 1}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a28ef093b12e8d4a8ac759177ec956a
+      internalID: -1702149939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_3
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 452
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: 1}
+        - {x: -24, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: 1}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83ac9b8078a48e945bd5a30ca2f8fa79
+      internalID: 248761220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_4
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 452
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: 1}
+        - {x: -24, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: 1}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebace01433091b94e8b2db2be887b18f
+      internalID: 323043869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_5
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 452
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: 1}
+        - {x: -24, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: 1}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23bbf31c77c7e094598f66d2723431e3
+      internalID: 722370427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 452
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: -1}
+        - {x: -24, y: -1}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d11d67a0f4309d4ca494070c7eaa3f2
+      internalID: 1294175031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_7
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 452
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: 24, y: -24}
+        - {x: 24, y: -1}
+        - {x: -24, y: -1}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7129ed2c761e72645b1f32e4172b39eb
+      internalID: -100062172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 402
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: -1}
+        - {x: 0, y: -1}
+        - {x: 0, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cb9179d81b20b842b60e54e54add26e
+      internalID: -2126005426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_9
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 402
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: 24}
+        - {x: 0, y: 24}
+        - {x: 0, y: -1}
+        - {x: 24, y: -1}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33cc7f6b9734a024188bcf65d48c59c8
+      internalID: -1114133018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_10
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 402
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: -24}
+        - {x: 1, y: 1}
+        - {x: -24, y: 1}
+        - {x: -24, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9aa469385fc9e4190dc17383cd4486
+      internalID: -830566555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_11
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 402
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: 1}
+        - {x: -1, y: 1}
+        - {x: -1, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbfe87f3c1bb36e4398b41f40553cfe5
+      internalID: -282273568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_12
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 402
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0, y: -24}
+        - {x: 0, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa01d5cc2f6c6c742b4d50787349ab5d
+      internalID: 852406285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_13
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 402
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: 24}
+        - {x: 0, y: 24}
+        - {x: 0, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a5f5e4390f43c4fbe20bce7ac0924f
+      internalID: -1313291276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: -1}
+        - {x: 1, y: -1}
+        - {x: 1, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c0b93dd667fa440a50254b2dcd2c75
+      internalID: -784575633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_15
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 352
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: 24}
+        - {x: -1, y: 24}
+        - {x: -1, y: -1}
+        - {x: 24, y: -1}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfed986115885034d8f2fcc121f16e05
+      internalID: -1671900979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_16
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 352
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0, y: -24}
+        - {x: 0, y: 1}
+        - {x: -24, y: 1}
+        - {x: -24, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e56cab499a6a0034bab4d30ad8cd2d01
+      internalID: -776619931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_17
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 352
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: 1}
+        - {x: 0, y: 1}
+        - {x: 0, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b45e9ccb2a2286b41bb21764183511bc
+      internalID: -1766334375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_18
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 352
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: -24}
+        - {x: 1, y: 24}
+        - {x: 24, y: 24}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33d54662147bc4840aa92235c786d1a7
+      internalID: -1048990822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_19
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 352
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: 24}
+        - {x: -1, y: 24}
+        - {x: -1, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5303d2bb3b4fc4485113441160dee8
+      internalID: 2088430526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 302
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 1, y: -24}
+        - {x: 1, y: -15}
+        - {x: -2, y: -15}
+        - {x: -2, y: -1}
+        - {x: 24, y: -1}
+        - {x: 24, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a7844d0a8760e943b91f1fae7c7b3f5
+      internalID: -1998054139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt Block Atlas new_21
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 302
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: -24}
+        - {x: -24, y: -1}
+        - {x: 2, y: -1}
+        - {x: 2, y: -15}
+        - {x: -1, y: -15}
+        - {x: -1, y: -24}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced09a41898ca3446aaa8055e892b956
+      internalID: 1376176772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Dirt Block Atlas new_16: -776619931
+      Dirt Block Atlas new_5: 722370427
+      Dirt Block Atlas new_11: -282273568
+      Dirt Block Atlas new_20: -1998054139
+      Dirt Block Atlas new_10: -830566555
+      Dirt Block Atlas new_0: 232164323
+      Dirt Block Atlas new_6: 1294175031
+      Dirt Block Atlas new_15: -1671900979
+      Dirt Block Atlas new_18: -1048990822
+      Dirt Block Atlas new_14: -784575633
+      Dirt Block Atlas new_19: 2088430526
+      Dirt Block Atlas new_13: -1313291276
+      Dirt Block Atlas new_4: 323043869
+      Dirt Block Atlas new_17: -1766334375
+      Dirt Block Atlas new_7: -100062172
+      Dirt Block Atlas new_9: -1114133018
+      Dirt Block Atlas new_12: 852406285
+      Dirt Block Atlas new_21: 1376176772
+      Dirt Block Atlas new_2: -1702149939
+      Dirt Block Atlas new_3: 248761220
+      Dirt Block Atlas new_1: 1065815894
+      Dirt Block Atlas new_8: -2126005426
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -80,14 +80,21 @@ public class playerMoveMent : MonoBehaviour
             wallGrab();
 
             wallJump(true);
-            
-        }else if(leftcol.IsTouchingLayers(LayerMask.GetMask("ground")) && Input.GetKey(KeyCode.A)){
+
+            spRend.flipX = false;
+
+        }
+        else if(leftcol.IsTouchingLayers(LayerMask.GetMask("ground")) && Input.GetKey(KeyCode.A)){
             wallGrab();
 
             wallJump(false);
-            
-        }else{
+
+            spRend.flipX = true;
+
+        }
+        else{
             grabWall = false;
+            lookAble = true;
         }
 
         //웅크리기 기능
@@ -177,7 +184,8 @@ public class playerMoveMent : MonoBehaviour
     }
 
     private void wallGrab(){
-        if(rb.velocity.y < -wallGrabSpeed){
+        lookAble = false;
+        if (rb.velocity.y < -wallGrabSpeed){
             rb.velocity = new Vector2(rb.velocity.x,-wallGrabSpeed);
         }
         grabWall = true;
@@ -214,37 +222,52 @@ public class playerMoveMent : MonoBehaviour
         float d = 0;//마찰
 
         //상태에따라 변화하는 가속도,최대속도,마찰을 위 변수에 저장
-        if (runing){
+        if (runing)
+        {
             a = acc;
             Mspeed = MaxSpeed;
             d = drag;
-        }else if(!Crouch) {
+        }
+        else if (!Crouch)
+        {
             a = airAcc;
             Mspeed = airMaxSpeed;
             d = airDrag;
-        }else if(isGround) {
+        }
+        else if (isGround)
+        {
             a = crouchAcc;
             Mspeed = crouchMaxSpeed;
             d = crouchDrag;
         }
 
         float x = rb.velocity.x;
-        if(!Dashing){
+        float dX = x / Mathf.Abs(x) * d * Time.deltaTime;
+        if (!Dashing)
+        {
             //최대속도보다 현재속도가 크면 가속 중지 그리고 반대방향으로는 가속가능
-            if(Mspeed > x && hori > 0){
+            if (Mspeed > x && hori > 0)
+            {
                 x += a * Time.deltaTime;
-            }else if(-Mspeed < x && hori < 0){
+            }
+            else if (-Mspeed < x && hori < 0)
+            {
                 x += a * -Time.deltaTime;
             }
             //기본 마찰
-            if(isGround && x != 0) {
-                x -= x / Mathf.Abs(x) * d * Time.deltaTime;
+            else if (isGround && x != 0)
+            {
+                if (Mathf.Abs(x) <= Mathf.Abs(dX))
+                {
+                    x = 0;
+                }
+                else
+                {
+                    x -= dX;
+                }
             }
         }
-        if(Mathf.Abs(x) < Time.deltaTime){
-            x = 0;
-        }
-        rb.velocity = new Vector2(x,rb.velocity.y);//마찰 적용된 속도로 현재속도 바꿈
+        rb.velocity = new Vector2(x, rb.velocity.y);//마찰 적용된 속도로 현재속도 바꿈
     }
     public void dash(bool dir){
         spontaneityAnim = true;

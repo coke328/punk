@@ -5,7 +5,6 @@ using UnityEngine;
 public class talkballon_script : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
