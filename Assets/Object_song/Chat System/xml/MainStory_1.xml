@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScenarioRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Chapter ID="1">
+		<Title> 챕터1</Title>
+	</Chapter>
+	<Group>
+		<GroupName>프롤로그</GroupName>
+		<Episode>
+			<EpisodeName>에피소드1</EpisodeName>
+			<Place>
+				<PlaceName>장소:폐허</PlaceName>
+				<Dialog ID="0" Model="앨리스">
+					<Teller>???</Teller>
+					<Title>???</Title>
+					<Content>여긴 어디지...</Content>
+				</Dialog>
+			<Dialog ID="1" Model="헤세드">
+					<Teller>???</Teller>
+					<Title>???</Title>
+					<Content>여긴 마을이야...</Content>
+				</Dialog>
+			</Place>
+		</Episode>
+	</Group>
+</ScenarioRoot>

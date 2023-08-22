@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TempScene.unity
     guid: 8db55d5c915c9584fa7bde46f6b5f094
+  - enabled: 1
+    path: Assets/Scenes/Stage 1-1.unity
+    guid: bbe0abaa37b77574aa30d811177cac80
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: b02a5a1615b0dff4c807a509c5b45d1e
+  - enabled: 1
+    path: Assets/Scenes/UI.unity
+    guid: e3613a9f369bdad4aa5b818dcd95297e
   m_configObjects: {}
