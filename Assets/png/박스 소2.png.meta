@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a8c002d8074fa64a858b08489e26915
+guid: ffd9a78de97df6a42ae2fad3911e9086
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,17 +42,17 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 48
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 15, y: 0, z: 15, w: 15}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -103,18 +103,56 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline: []
-    physicsShape: []
+    sprites:
+    - serializedVersion: 2
+      name: "\uBC15\uC2A4 \uC18C2_0"
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 0
+        width: 210
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 105, y: 102.5}
+        - {x: -105, y: 102.5}
+        - {x: -105, y: -102.5}
+        - {x: 105, y: -102.5}
+      physicsShape:
+      - - {x: -105, y: -102.5}
+        - {x: -105, y: 102.5}
+        - {x: 105, y: 102.5}
+        - {x: 105, y: -102.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f417a2140437d94f8fcd7f5a9cbcdba
+      internalID: -1205865163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -105, y: -110}
+      - {x: -105, y: 95}
+      - {x: 105, y: 95}
+      - {x: 105, y: -110}
+    physicsShape:
+    - - {x: -105, y: -110}
+      - {x: -105, y: 95}
+      - {x: 105, y: 95}
+      - {x: 105, y: -110}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "\uBC15\uC2A4 \uC18C2_0": -1205865163
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

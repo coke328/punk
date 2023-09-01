@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScenarioRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ObjectType>false</ObjectType>
+	<Group>
+		<Dialog ID="0" Model="none" Position="none">
+			<Content>평범한 박스이다. 밀 수 있을 것 같다.</Content>
+		</Dialog>
+	</Group>
+</ScenarioRoot>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScenarioRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ObjectType>true</ObjectType>
+	<Group>
+		<Dialog ID="0" Model="Stand\주인공 스탠딩" Position="Player">
+			<Teller>앨리스</Teller>
+			<Content>여긴 어디지...</Content>
+		</Dialog>
+		<Dialog ID="1" Model="Stand\시계토끼 스탠딩" Position="NPC">
+			<Teller>헤세드</Teller>
+			<Content>여긴 마을이야...</Content>
+		</Dialog>
+		<Dialog ID="2" Model="Stand\주인공 스탠딩" Position="Player">
+			<Teller>앨리스</Teller>
+			<Content>.....</Content>
+		</Dialog>
+		<Dialog ID="3" Model="Stand\체셔캣 스탠딩" Position="NPC">
+			<Teller>체셔캣</Teller>
+			<Content>흐음...</Content>
+		</Dialog>
+	</Group>
+</ScenarioRoot>

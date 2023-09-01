@@ -5,6 +5,5 @@ using UnityEngine;
  XML 적용했을때 제거하고 XML로 전부 대체 가능한지 여부 불투명*/
 public class Obj_Dialog_Data : MonoBehaviour
 {
-    public int Id;
-    public bool isTalk;
+    public string XmlName;
 }
