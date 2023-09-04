@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
     [Tooltip("NPC 이미지 및 텍스트")]
     public GameObject NPC_Obj;
     //그외
-    [Tooltip("다이얼로그 UI 캔버스")]
-    public GameObject Canvas;
     [Tooltip("플레이어 오브젝트")]
     public GameObject Player;
     [Tooltip("스캔된 오브젝트")]
@@ -32,8 +30,7 @@ public class GameManager : MonoBehaviour
     int ID;
     private void Start()
     {
-        Canvas.SetActive(false); //시작할땐 캔버스 꺼놓기
-        TalkSet.SetActive(true); //기본이미지만 켜놓기
+        TalkSet.SetActive(false); //기본이미지만 켜놓기
         Talk_text.enabled = true; //기본텍스트만 켜놓기
         ID = 0;
     }
@@ -44,7 +41,7 @@ public class GameManager : MonoBehaviour
         xmlmanager.LoadXml(objData.XmlName); //XML로드하기
         bool Obj_Type = xmlmanager.Return_Object_Type();
         ObjectType(Obj_Type); //오브젝트 타입에 맞게 설정
-        Canvas.SetActive(true); //캔버스 켜기
+        TalkSet.SetActive(true); //대화창 켜기
         Player.GetComponent<playerMoveMent>().enabled = false; //플레이어 움직임 끄기
         if (Obj_Type)
             Talk_NPC();
@@ -91,7 +88,7 @@ public class GameManager : MonoBehaviour
         else
         {
             ID = 0;
-            Canvas.SetActive(false); //캔버스 켜기
+            TalkSet.SetActive(false); //대화창 종료
             Player.GetComponent<playerMoveMent>().enabled = true; //플레이어 움직임 끄기
             return;
         }

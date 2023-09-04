@@ -8,14 +8,14 @@ public class hp : MonoBehaviour
     public int MaxHp = 10;
     public int Hp = 10;
     public UnityEvent getDamage;
-    public UnityEvent daed;
+    public UnityEvent dead;
     public UnityEvent getHeal;
     public void damage(int d){
 
         Hp -= d;
         getDamage.Invoke();
         if(Hp <= 0){
-            daed.Invoke();
+            dead.Invoke();
         }
     }
     public void heal(int d)

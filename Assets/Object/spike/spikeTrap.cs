@@ -9,7 +9,7 @@ public class spikeTrap : MonoBehaviour
     public float DisAppearTime;
     private BoxCollider2D bc;
     private SpriteRenderer sr;
-    UnityEvent Spkiehit;
+    public UnityEvent Spikehit;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +21,7 @@ public class spikeTrap : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            //Spkiehit.Invoke();
-            Debug.Log("∞°Ω√ø° ¥Í¿∫!");
+            Spikehit.Invoke();
         }
     }
     private IEnumerator Toggle()
