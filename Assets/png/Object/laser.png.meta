@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 9.6
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -913,7 +913,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_24": -305282584
       "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_17": -1401371758
       "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_33": 548016754
       "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_27": -671183938
@@ -949,6 +948,7 @@ TextureImporter:
       "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_30": -422458611
       "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_34": 1336634989
       "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_8": -1968382233
+      "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_24": -305282584
       "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_22": 2044894879
       "\uB808\uC774\uC800 \uC3D8\uB294 \uAE30\uACC4_3": -2045776689
   spritePackingTag: 

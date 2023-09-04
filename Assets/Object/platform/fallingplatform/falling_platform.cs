@@ -7,22 +7,22 @@ public class falling_platform : MonoBehaviour
     public float fall_wait_time;
     public float recover_wait_time;
     private bool flag;
-    private BoxCollider2D bc;
-    private SpriteRenderer sr;
+    private EdgeCollider2D bc;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        bc = GetComponent<BoxCollider2D>();
-        sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        bc = GetComponent<EdgeCollider2D>();
         flag = true;
+        anim.SetFloat("breakTime", 1/fall_wait_time);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Player") && flag)
         {
             flag = false;
-            sr.color = Color.gray;
-            Debug.Log("감지");
+            anim.Play("break_");
             Invoke("falling", fall_wait_time);
             Invoke("recover", (recover_wait_time + fall_wait_time));
             flag = true;
@@ -30,14 +30,12 @@ public class falling_platform : MonoBehaviour
     }
     void falling()
     {
-        Debug.Log("파괴");
+        anim.Play("destroy_");
         bc.enabled = false;
-        sr.color = Color.black;
     }
     void recover()
     {
-        Debug.Log("회복");
+        anim.Play("idle_");
         bc.enabled = true;
-        sr.color = Color.white;
     }
 }

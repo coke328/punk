@@ -203,6 +203,13 @@ public class playerMoveMent : MonoBehaviour
         spontaneityAnim = true;
         Invoke("toIdle", jumpAnimTime);//일정시간뒤 점프애니메이션 정지
     }
+    public void Jump(float jumpForce)
+    {
+        rb.AddForce(new Vector2(0, 1) * jumpForce);
+        changeAnim((int)animIndex.firstJump);//점프 애니메이션 재생
+        spontaneityAnim = true;
+        Invoke("toIdle", jumpAnimTime);//일정시간뒤 점프애니메이션 정지
+    }
     public void secondJump()
     {
         rb.velocity = new Vector2(rb.velocity.x, secondJumpPower.y);
