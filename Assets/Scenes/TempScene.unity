@@ -1600,6 +1600,7 @@ GameObject:
   - component: {fileID: 638583089}
   - component: {fileID: 638583088}
   - component: {fileID: 638583090}
+  - component: {fileID: 638583095}
   - component: {fileID: 638583087}
   - component: {fileID: 638583086}
   - component: {fileID: 638583094}
@@ -1638,13 +1639,49 @@ MonoBehaviour:
   Hp: 5
   getDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 638583095}
+        m_TargetAssemblyTypeName: respawn, Assembly-CSharp
+        m_MethodName: setHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   daed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 638583095}
+        m_TargetAssemblyTypeName: respawn, Assembly-CSharp
+        m_MethodName: loadLastData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   getHeal:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 638583095}
+        m_TargetAssemblyTypeName: respawn, Assembly-CSharp
+        m_MethodName: setHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!50 &638583088
 Rigidbody2D:
   serializedVersion: 4
@@ -1724,14 +1761,15 @@ MonoBehaviour:
   wallGrabSpeed: 8
   hitAnimTime: 0.25
   runMaxSpeed: 15
-  runAccel: 4
-  runDeccel: 10
+  runAccel: 2
+  runDeccel: 1
   accelInAir: 0.8
   deccelInAir: 0.05
   crouchMaxSpeed_: 5
   slidingMatch: 5
   slidingAccel: 0.1
   Rate: 1
+  gravity: 8
 --- !u!95 &638583091
 Animator:
   serializedVersion: 5
@@ -1838,6 +1876,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1197374329}
   isNPC: 0
+--- !u!114 &638583095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638583085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555273f441a9f6343800cb87b3fc00e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentData: {fileID: 11400000, guid: e68c539caf7231b4f92916db013a330d, type: 2}
+  lastData: {fileID: 11400000, guid: 7aafb40569887ba45a66b61a77ab8b74, type: 2}
 --- !u!1 &655189031
 GameObject:
   m_ObjectHideFlags: 0

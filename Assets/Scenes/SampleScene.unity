@@ -880,7 +880,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 1, y: 1, z: 0}
+  m_ChunkCullingBounds: {x: 2, y: 2, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -2297,6 +2297,7 @@ GameObject:
   - component: {fileID: 1656941131}
   - component: {fileID: 1656941130}
   - component: {fileID: 1656941129}
+  - component: {fileID: 1656941137}
   - component: {fileID: 1656941135}
   - component: {fileID: 1656941136}
   m_Layer: 7
@@ -2365,33 +2366,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b290e61ce312cfe469b915e6f34d4b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acc: 100
-  MaxSpeed: 25
   runing: 1
-  drag: 200
-  airMaxSpeed: 40
-  airAcc: 30
-  airDrag: 8
-  jumpForce: 1500
-  wallJumpPower: {x: 1200, y: 1500}
+  jumpForce: 2500
+  wallJumpPower: {x: 1000, y: 2200}
+  wallJumpDelay: 0.5
   Crouch: 0
-  crouchAcc: 30
-  crouchMaxSpeed: 2
-  crouchDrag: 7
   able_dash: 1
-  dashPower: {x: 30, y: 0}
+  dashPower: {x: 120, y: 0}
   dashTime: 0.07
   dashCoolTime: 1
   jumpAnimTime: 0.35
   landAnimTime: 0.1
   crouchingTIme: 0.3
   wallJumpAnimTime: 0.3
-  slidingSpeed: 3
   currentAnim: 0
   secondJumpAble: 1
-  secondJumpPower: {x: 0, y: 15}
-  secondJumpAnimTime: 0.5
-  wallGrabSpeed: 3
+  secondJumpPower: {x: 0, y: 30}
+  secondJumpAnimTime: 0.8
+  wallGrabSpeed: 8
+  hitAnimTime: 0.25
+  runMaxSpeed: 15
+  runAccel: 2
+  runDeccel: 1
+  accelInAir: 0.8
+  deccelInAir: 0.05
+  crouchMaxSpeed_: 5
+  slidingMatch: 5
+  slidingAccel: 0.1
+  Rate: 1
+  gravity: 8
 --- !u!95 &1656941132
 Animator:
   serializedVersion: 5
@@ -2472,7 +2475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656941128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.45, y: -0.26, z: 0}
+  m_LocalPosition: {x: -13.1, y: 0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2500,13 +2503,49 @@ MonoBehaviour:
   Hp: 5
   getDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1656941137}
+        m_TargetAssemblyTypeName: respawn, Assembly-CSharp
+        m_MethodName: setHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   daed:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1656941137}
+        m_TargetAssemblyTypeName: respawn, Assembly-CSharp
+        m_MethodName: loadLastData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   getHeal:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1656941137}
+        m_TargetAssemblyTypeName: respawn, Assembly-CSharp
+        m_MethodName: setHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1656941136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2519,6 +2558,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c412abdd7cd10438993dec37dfa51d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1656941137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656941128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555273f441a9f6343800cb87b3fc00e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentData: {fileID: 11400000, guid: e68c539caf7231b4f92916db013a330d, type: 2}
+  lastData: {fileID: 11400000, guid: 7aafb40569887ba45a66b61a77ab8b74, type: 2}
 --- !u!1 &1704785312
 GameObject:
   m_ObjectHideFlags: 0
@@ -2689,8 +2742,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 365d2695c7914fc429d715a723bfede0, type: 2}
-  m_sharedMaterial: {fileID: 8258778920304355022, guid: 365d2695c7914fc429d715a723bfede0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2779,7 +2832,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8258778920304355022, guid: 365d2695c7914fc429d715a723bfede0, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
