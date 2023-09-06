@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d1c54f66aa3a343bbb6a22bd2d6b19, type: 3}
   m_Name: currentData
   m_EditorClassIdentifier: 
+  keys:
+  - keyName: testKey
+    keyCount: 1
   coin: 0
   health: 10
-  sceneName: SampleScene
-  deadCnt: 6
+  sceneName: 
+  deadCnt: 1
