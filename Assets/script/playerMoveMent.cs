@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class playerMoveMent : MonoBehaviour
 {
     private float hori;//키보드 a,d 입력
@@ -14,10 +15,6 @@ public class playerMoveMent : MonoBehaviour
     private Animator anim;
     private SpriteRenderer spRend;
     private bool lastground = false;//이전 프레임에 땅에 닿아있었는지
-    /*    public float climbTimeMax = 3f;  //기어오르기 기능 변수들
-        public float climbTime = 0f;
-        public float climbSpeed = 1f;
-        public float climbStateCharge = 5f;*/
     public Vector2 wallJumpPower = new Vector2(500, 700);//벽점프 힘
     private bool wallJumped = false;
     private float wallJumpT;
@@ -58,6 +55,9 @@ public class playerMoveMent : MonoBehaviour
     public float slidingMatch;
     public float slidingAccel;
     public float Rate;
+    public float gravity = 8f;
+
+
 
 
     void Start()
@@ -71,6 +71,10 @@ public class playerMoveMent : MonoBehaviour
         standardCol = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
         spRend = GetComponent<SpriteRenderer>();
+
+        rb.gravityScale = gravity;
+
+        
     }
 
     void Update()
@@ -513,7 +517,7 @@ public class playerMoveMent : MonoBehaviour
     void dashEnd()
     {//대쉬 끝날때 실행되는 함수
         rb.velocity = velBefDash;//대쉬 누른 순간의 속도 불러오기
-        rb.gravityScale = 8f;//중력
+        rb.gravityScale = gravity;//중력
         Dashing = false;//대쉬 끝
         //changeAnim((int)animIndex.idle);
         spontaneityAnim = false;
@@ -538,38 +542,5 @@ public class playerMoveMent : MonoBehaviour
     void hitEnd()
     {
         move = true;
-    }
-    private void climb()
-    {
-        /* 기어오르는 기능
-                if(rightTouch && Input.GetKey(KeyCode.D) && climbTime > 0 && !Crouch){
-                    if(rb.velocity.y < climbSpeed * 1){rb.AddForce(new Vector2(0,1) * climbSpeed);}
-                    //rb.velocity = new Vector2(rb.velocity.x,climbSpeed);
-
-                    climbTime -= Time.deltaTime;
-
-                    if(Input.GetKeyDown("space") && !isGround){
-                        rb.AddForce(new Vector2(-wallJumpPower.x,wallJumpPower.y));
-                    }
-                }else if(leftTouch && Input.GetKey(KeyCode.A) && climbTime > 0 && !Crouch){
-                    if(rb.velocity.y < climbSpeed * 1){rb.AddForce(new Vector2(0,1) * climbSpeed);}
-                    //rb.velocity = new Vector2(rb.velocity.x,climbSpeed);
-
-                    climbTime -= Time.deltaTime;
-
-                    if(Input.GetKeyDown("space") && !isGround){
-                        rb.AddForce(wallJumpPower);
-                    }
-                }else if(!rightTouch && !leftTouch) {
-                    climbTime += Time.deltaTime * climbStateCharge;
-                    if(climbTime > climbTimeMax){
-                        climbTime = climbTimeMax;
-                    }
-                }else if(isGround){
-                    climbTime += Time.deltaTime * climbStateCharge;
-                    if(climbTime > climbTimeMax){
-                        climbTime = climbTimeMax;
-                    }
-                }*/
     }
 }

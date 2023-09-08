@@ -10,6 +10,7 @@ public class hp : MonoBehaviour
     public UnityEvent getDamage;
     public UnityEvent dead;
     public UnityEvent getHeal;
+
     public void damage(int d){
 
         Hp -= d;
@@ -20,13 +21,16 @@ public class hp : MonoBehaviour
     }
     public void heal(int d)
     {
-        //È¸º¹°¡´É
+        //È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if ((Hp + d) <= MaxHp)
             Hp += d;
-        else//ÃÖ´ëÃ¼·ÂÀÌ¶ó È¸º¹ºÒ°¡
+        else//ï¿½Ö´ï¿½Ã¼ï¿½ï¿½ï¿½Ì¶ï¿½ È¸ï¿½ï¿½ï¿½Ò°ï¿½
             Hp = MaxHp;
         getHeal.Invoke();
         Debug.Log(Hp);
+    }
+    public void setHp(int hp){
+        Hp = hp;
     }
     public int return_hp() { return Hp; }
     public bool is_max() { return MaxHp == Hp; }
