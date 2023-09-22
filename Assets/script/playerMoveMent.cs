@@ -51,13 +51,14 @@ public class playerMoveMent : MonoBehaviour
     public float runDeccel;
     public float accelInAir;
     public float deccelInAir;
+    public float accelOnIce;
+    public float deccelOnIce;
     public float crouchMaxSpeed_;
     public float slidingMatch;
     public float slidingAccel;
     public float Rate;
     public float gravity = 8f;
-
-
+    public bool onIce = false;
 
 
     void Start()
@@ -295,7 +296,11 @@ public class playerMoveMent : MonoBehaviour
         float accelRate;
         if (isGround)
         {
-            accelRate = (Mathf.Abs(targetSpeed) > 0.1f) ? runAccel : runDeccel;
+            if(!onIce){
+                accelRate = (Mathf.Abs(targetSpeed) > 0.1f) ? runAccel : runDeccel;
+            }else{
+                accelRate = (Mathf.Abs(targetSpeed) > 0.1f) ? accelOnIce : deccelOnIce;
+            }
         }
         else
         {
